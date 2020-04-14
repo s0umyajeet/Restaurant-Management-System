@@ -5,8 +5,7 @@ class Restaurant {
         static int        total_orders;
         static int        total_dish_count;
         static int        total_tables;
-        //static Restaurant restaurant;
-        Dish              available_dishes[];
+        Order             active_orders[];
 
         Restaurant() {
                 restaurant_name   = "";
@@ -14,7 +13,7 @@ class Restaurant {
                 total_tables      = 10;
         }
         
-        public void initial_setup(Restaurant restaurant) {
+        public void initial_setup(Restaurant restaurant, Order active_orders[]) {
                 System.out.println("");
                 System.out.println("\t\t------------------------------------------------------------");
                 System.out.println("\t\t          Welcome to Restaurant Management System           ");
@@ -24,11 +23,10 @@ class Restaurant {
                 System.out.println("");
                 System.out.println("\t\t1. Show dishes menu");
                 System.out.println("\t\t2. Place an order");
-                System.out.println("\t\t3. Cancel order");
-                System.out.println("\t\t4. Show bill");
-                System.out.println("\t\t5. Exit");
+                System.out.println("\t\t3. Show bill");
+                System.out.println("\t\t4. Exit");
                 System.out.println("");
-                System.out.println("Enter your choice (1 to 5): ");
+                System.out.println("\t\tEnter your choice (1 to 5): ");
 
                 int choice;
                 Scanner sc = new Scanner(System.in);
@@ -36,13 +34,12 @@ class Restaurant {
                 switch(choice) {
                         case 1: restaurant.show_menu(restaurant);
                                 break;
-                        case 2: restaurant.place_order(restaurant);
+                        case 2: restaurant.place_order(restaurant, restaurant.active_orders);
                                 break;
-                        case 3: restaurant.cancel_order(restaurant);
-                                break;
-                        case 4: restaurant.cancel_order(restaurant);
+                        case 3: restaurant.calculate_bill(restaurant, restaurant.active_orders);
                                 break;
                         case 5: restaurant.exit();
+                                break;
                 }
         }
 
@@ -60,25 +57,21 @@ class Restaurant {
                 System.out.println("\t\t  5. Paneer1\t\t\t500");
                 System.out.println("\t\t  6. Paneer2\t\t\t600");
                 System.out.println("\t\t  7. Paneer3\t\t\t700");
-                System.out.println("\t\t  8. Paneer69\t\t\t800");
-                System.out.println("\t\t     (Really Spice ;) ...)");
+                System.out.println("\t\t  8. Paneer4\t\t\t800");
                 System.out.println("");
                 System.out.println("\t\t  Desserts: ");
                 System.out.println("\t\t  9. Sweet1\t\t\t900");
                 System.out.println("\t\t  10. Sweet2\t\t\t1000");
                 System.out.println("\t\t  11. Sweet3\t\t\t1200");
                 System.out.println("\t\t  12. Sweet16\t\t\t1600");
-                System.out.println("\t\t     (Really Sweet ;) ...)");
                 System.out.println("\n");
                 System.out.println("\t\tPress any key to go back....");
                 Scanner sc = new Scanner(System.in);
                 sc.nextLine();
-                restaurant.initial_setup(restaurant);
+                restaurant.initial_setup(restaurant, restaurant.active_orders);
         }
-        public void cancel_order(Restaurant restaurant) {
-
-        }
-        public void place_order(Restaurant restaurant) {
+        
+        public void place_order(Restaurant restaurant, Order active_orders[]) {
                 System.out.println("\t\tPlease enter your order from the menu below");
                 System.out.println("");
                 System.out.println("\t\t------------------- Menu -----------------");
@@ -95,7 +88,7 @@ class Restaurant {
                 System.out.println("\t\t  6. Paneer2\t\t\t600");
                 System.out.println("\t\t  7. Paneer3\t\t\t700");
                 System.out.println("\t\t  8. Paneer69\t\t\t800");
-                System.out.println("\t\t     (Really Spice ;) ...)");
+                System.out.println("\t\t     (Really Spicy ;) ...)");
                 System.out.println("");
                 System.out.println("\t\t  Desserts: ");
                 System.out.println("\t\t  9. Sweet1\t\t\t900");
@@ -106,15 +99,113 @@ class Restaurant {
                 System.out.println("\n");
         
                 Order order = new Order();
-                order.order_id++;
+                Restaurant.total_orders++;
+                order.order_id = total_orders;
                 Scanner sc = new Scanner(System.in);
                 System.out.println("\t\tEnter your choice as index number of dish: ");                
                 order.dish_choice = sc.nextInt();
                 System.out.println("\t\tEnter quantity: ");
                 order.quantity = sc.nextInt();
                 
+                switch (order.dish_choice) {
+                        case 1: order.dish_name = "Sandwich";
+                                break;
+                        case 2: order.dish_name = "Burger";
+                                break;
+                        case 3: order.dish_name = "Pasta";
+                                break;
+                        case 4: order.dish_name = "Noodles";
+                                break;
+                        case 5: order.dish_name = "Paneer1";
+                                break;
+                        case 6: order.dish_name = "Paneer2";
+                                break;
+                        case 7: order.dish_name = "Paneer3";
+                                break;
+                        case 8: order.dish_name = "Paneer4";
+                                break;
+                        case 9: order.dish_name = "Sweet1";
+                                break;
+                        case 10: order.dish_name = "Sweet2";
+                                break;
+                        case 11: order.dish_name = "Sweet3";
+                                break;
+                        case 12: order.dish_name = "Sweet4";
+                                break;
+                }
+
+                switch (order.dish_choice) {
+                        case 1: order.dish_price = 100;
+                                break;
+                        case 2: order.dish_price = 200;
+                                break;
+                        case 3: order.dish_price = 300;
+                                break;
+                        case 4: order.dish_price = 400;
+                                break;
+                        case 5: order.dish_price = 500;
+                                break;
+                        case 6: order.dish_price = 600;
+                                break;
+                        case 7: order.dish_price = 700;
+                                break;
+                        case 8: order.dish_price = 800;
+                                break;
+                        case 9: order.dish_price = 900;
+                                break;
+                        case 10: order.dish_price = 1000;
+                                break;
+                        case 11: order.dish_price = 1100;
+                                break;
+                        case 12: order.dish_price = 1200;
+                                break;
+                }
+                System.out.println("\t\tOrder successfully placed...");
+                System.out.println("\t\tOrder details: ");
+                System.out.println("\t\tDish name: " + order.dish_name);
+                System.out.println("\t\tQuantity: " + order.quantity);
+                System.out.println("");
+                active_orders[order.order_id] = order;
+                restaurant.initial_setup(restaurant, active_orders);
         }
 
+        public void calculate_bill(Restaurant restaurant, Order active_orders[]) {
+                System.out.println("Enter the order ID to calculate bill for: ");
+                Scanner sc = new Scanner(System.in);
+                int temp_order_id = sc.nextInt();
+
+                int order_found = 0;
+                int target_index = 0;
+                for (int i = 0; i < Restaurant.total_orders; i++) {
+                        if (active_orders[i].order_id == temp_order_id) {
+                                order_found =  1;
+                                target_index = i;
+                                System.out.println("Your order details: ");
+                                System.out.println("\t\tDish name: " + active_orders[i].dish_name);
+                                System.out.println("\t\tQuantity:  " + active_orders[i].quantity);
+                                System.out.println("");
+                                System.out.println("\t\tAre you sure you would like to cancel this order? Yes/No (1/0): ");
+                                
+                                int choice;
+                                Scanner sc = new Scanner(System.in);
+                                sc.nextInt();
+                                
+                                if (choice == 1) {
+                                        for (int j = target_index + 1; j < Restaurant.total_orders - 1; j++) {
+                                                active_orders[j - 1] = active_orders[j];
+                                        }
+                                        System.out.println("\t\tOrder cancelled successfully...");
+                                } else {
+                                        System.out.println("Order cancellation cancelled...");
+                                }
+                                restaurant.initial_setup(restaurant, restaurant.active_orders);
+                        }
+                }
+                if (order_found == 0) {
+                        System.out.println("Sorry can't cancel the order. No such active order found...");
+                        restaurant.initial_setup(restaurant, restaurant.active_orders);
+                }
+        }
         public void exit() {
                 System.out.println("");
                 System.out.println("Thank you for using Restaurant management system....");
@@ -123,21 +214,19 @@ class Restaurant {
         }
         public static void main(String []args) {
                 Restaurant restaurant = new Restaurant();
-                restaurant.initial_setup(restaurant);
+                restaurant.active_orders = new Order[100];
+                restaurant.initial_setup(restaurant, restaurant.active_orders);
         }
 }       
 
 class Order {
-        static int order_id = 0;
-        static int table_num;
+        int order_id = 0;
         int        dish_choice;
         int        quantity;
         float      order_bill;
-        int        dish_id;
         float      dish_price;
-        String     dish_type; 
         String     dish_name;
-        
+
         Order() {
                 dish_choice  = 0;
                 quantity     = 0;
@@ -148,21 +237,5 @@ class Order {
                 float gst = 0.14f * dish_price;
                 order_bill =dish_price * quantity + gst; 
                 return order_bill;       
-        }
-
-        public int get_quantity() {
-                return quantity;
-        }
-
-        public static int get_order_id() {
-                return order_id;
-        }
-        
-        public String get_dish_name() {
-                return this.dish_name;
-        }
-
-        public String get_dish_type() {
-                return this.dish_type;
         }
 }
