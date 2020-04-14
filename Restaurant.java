@@ -72,8 +72,6 @@ class Restaurant {
         }
         
         public void place_order(Restaurant restaurant, Order active_orders[]) {
-                System.out.println("\t\tPlease enter your order from the menu below");
-                System.out.println("");
                 System.out.println("\t\t------------------- Menu -----------------");
                 System.out.println("\t\t  Dishes\t\t\tPrice");
                 System.out.println("\t\t------------------------------------------");
@@ -87,16 +85,16 @@ class Restaurant {
                 System.out.println("\t\t  5. Paneer1\t\t\t500");
                 System.out.println("\t\t  6. Paneer2\t\t\t600");
                 System.out.println("\t\t  7. Paneer3\t\t\t700");
-                System.out.println("\t\t  8. Paneer69\t\t\t800");
-                System.out.println("\t\t     (Really Spicy ;) ...)");
+                System.out.println("\t\t  8. Paneer4\t\t\t800");
                 System.out.println("");
                 System.out.println("\t\t  Desserts: ");
                 System.out.println("\t\t  9. Sweet1\t\t\t900");
                 System.out.println("\t\t  10. Sweet2\t\t\t1000");
                 System.out.println("\t\t  11. Sweet3\t\t\t1200");
                 System.out.println("\t\t  12. Sweet16\t\t\t1600");
-                System.out.println("\t\t     (Really Sweet ;) ...)");
                 System.out.println("\n");
+                System.out.println("\t\tPress any key to go back....");
+                System.out.println("");
         
                 Order order = new Order();
                 Restaurant.total_orders++;
