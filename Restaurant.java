@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import java.util.*;
 
 class Restaurant {
@@ -52,3 +53,16 @@ class Dish {
         }
 
 }
+=======
+import java.util.*;
+
+class Restaurant {
+
+}       
+
+class Dish {
+        String name;
+        float  price;
+        String type;
+}
+>>>>>>> ba2b29a740b1755420ec8dc8905cc48d66f4b8cf
