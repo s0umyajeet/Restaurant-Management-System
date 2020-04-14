@@ -1,33 +1,53 @@
-<<<<<<< HEAD
 import java.util.*;
 
 class Restaurant {
         String restaurant_name;
-        float bill;
         static int total_orders;
 
-        Restauran() {
+        Restaurant() {
                 restaurant_name = "";
-                bill = 0;
         }
-        public float calculate_bill() {
-                
+        
+        public void show_menu() {
+
         }
-
-        public void take_order() {
-
+        public void place_order() {
+                System.out.println("Please enter your order from the menu above");
         }
 }       
 
 class Order {
         static int order_id;
         static int table_num;
-        String     ordered_dish;
+        String     ordered_dish_name;
         int        quantity;
-        
+        float      order_bill;
+        Dish       ordered_dish;
+
+        Order() {
+                ordered_dish_name = "";
+                quantity          = 0;
+                order_bill        = 0.0f;
+        }
+
+        public float calculate_bill() {
+                float gst = 0.14f * ordered_dish.get_dish_price();
+                order_bill = ordered_dish.get_dish_price() * quantity + gst; 
+                return order_bill;       
+        }
+
+        public int get_quantity() {
+                return quantity;
+        }
+
+        public static int get_order_id() {
+                return order_id;
+        }
 
 
 }
+
+
 class Dish {
         String name;
         float  price;
@@ -53,16 +73,6 @@ class Dish {
         }
 
 }
-=======
-import java.util.*;
 
-class Restaurant {
 
-}       
 
-class Dish {
-        String name;
-        float  price;
-        String type;
-}
->>>>>>> ba2b29a740b1755420ec8dc8905cc48d66f4b8cf
