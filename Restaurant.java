@@ -63,7 +63,7 @@ class Restaurant {
                 System.out.println("\t\t  9. Sweet1\t\t\t900");
                 System.out.println("\t\t  10. Sweet2\t\t\t1000");
                 System.out.println("\t\t  11. Sweet3\t\t\t1200");
-                System.out.println("\t\t  12. Sweet16\t\t\t1600");
+                System.out.println("\t\t  12. Sweet4\t\t\t1600");
                 System.out.println("\n");
                 System.out.println("\t\tPress any key to go back....");
                 Scanner sc = new Scanner(System.in);
@@ -91,7 +91,7 @@ class Restaurant {
                 System.out.println("\t\t  9. Sweet1\t\t\t900");
                 System.out.println("\t\t  10. Sweet2\t\t\t1000");
                 System.out.println("\t\t  11. Sweet3\t\t\t1200");
-                System.out.println("\t\t  12. Sweet16\t\t\t1600");
+                System.out.println("\t\t  12. Sweet4\t\t\t1600");
                 System.out.println("\n");
                 System.out.println("\t\tPress any key to go back....");
                 System.out.println("");
