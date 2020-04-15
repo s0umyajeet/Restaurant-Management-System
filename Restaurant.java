@@ -1,7 +1,14 @@
-//--------------------------------------|
-//      Author:  Soumyajeet Mandal      |
-//      Created: 14/04/2020 21:03 IST   |
-//--------------------------------------|
+//----------------------------------------------------------------------------|
+//      Author:       Soumyajeet Mandal                                       | 
+//      Created:      14/04/2020 21:03 IST                                    |
+//      Github-link:  github.com/s0umyajeet/Restaurant-Management-System.git  |
+//----------------------------------------------------------------------------|
+
+/*
+        Open terminal in the same directory as the Restaurant.java file
+        Commands: javac Restaurant.java
+                  java Restaurant
+*/
 
 import java.util.*;
 import java.io.IOException;     //For clear_screen function
